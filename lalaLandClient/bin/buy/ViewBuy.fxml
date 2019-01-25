@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="buy.ViewBuyController">
+   <children>
+      <Label layoutX="29.0" layoutY="2.0" text="TICKET BUY LIST">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="48.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutX="23.0" layoutY="72.0" prefHeight="262.0" prefWidth="927.0">
+         <columns>
+            <TableColumn fx:id="buyId" prefWidth="125.0" text="주문번호" />
+            <TableColumn fx:id="buyKind" prefWidth="178.0" text="종류" />
+            <TableColumn fx:id="buyMem" prefWidth="106.0" text="구매자" />
+            <TableColumn fx:id="buySales" prefWidth="195.0" text="결제 금액" />
+            <TableColumn fx:id="buyDate" prefWidth="195.0" text="구매일" />
+            <TableColumn fx:id="buyStatus" prefWidth="127.0" text="상태" />
+         </columns>
+      </TableView>
+      <Button fx:id="backBtn" layoutX="382.0" layoutY="370.0" mnemonicParsing="false" onAction="#clkbackBtn" style="-fx-border-color: #ffcc00; -fx-border-width: 3; -fx-background-color: transparent;" text="뒤로가기" />
+      <Button fx:id="btnCancel" layoutX="541.0" layoutY="370.0" mnemonicParsing="false" onAction="#clkcancelBtn" style="-fx-background-color: transparent; -fx-border-color: #ffcc00; -fx-border-width: 3;" text="구매취소" />
+      <ImageView fitHeight="46.0" fitWidth="67.0" layoutX="395.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/ticketicon2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,33 @@
+package controller;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
+public class Entrance2Controller {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private ImageView img;
+
+    @FXML
+    void click_ok(ActionEvent event) {
+    	Stage st = (Stage) img.getScene().getWindow();
+    	st.close();
+
+    }
+
+    @FXML
+    void initialize() {
+        assert img != null : "fx:id=\"img\" was not injected: check your FXML file 'EntranceScene2.fxml'.";
+
+    }
+}

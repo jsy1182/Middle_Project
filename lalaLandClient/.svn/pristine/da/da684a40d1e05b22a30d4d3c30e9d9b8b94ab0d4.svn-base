@@ -1,0 +1,110 @@
+package event.controller;
+
+import java.net.URL;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
+import service.IEventService;
+import vo.EventVO;
+
+public class EventMainController {
+	@FXML
+	private ResourceBundle resources;
+
+	@FXML
+	private URL location;
+
+	@FXML
+	private ListView<String> listview;
+
+	@FXML
+	private TextArea content;
+
+	private IEventService event;
+	List<EventVO> eventList;
+	List<String> elist;
+
+	@FXML
+	void listShow(MouseEvent event) {
+		String obj = listview.getSelectionModel().getSelectedItem();
+		String econtent = null;
+		Date start = null, end = null;
+		float discount = 0;
+		for (int i = 0; i < eventList.size(); i++) {
+			if (eventList.get(i).getEvent_title() == obj) {
+				econtent = eventList.get(i).getEvent_content();
+				start = eventList.get(i).getEvent_start();
+				end = eventList.get(i).getEvent_end();
+				discount = eventList.get(i).getEvent_disc();
+			}
+		}
+		content.setText("제목 : " + obj + "\n내용 : " + econtent + "\n할인률 : " + discount + 
+				"\n이벤트 시작일 : " + start + "\n이벤트 종료일 : " + end);
+	}
+	
+	void endOfEvent() throws RemoteException {
+		String name = null;
+		String today = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+		for (int i = 0; i < eventList.size(); i++) {
+			if (eventList.get(i).getEvent_end().equals(today)) {
+				name = eventList.get(i).getEvent_title();
+				content.setText("이미 기간이 지난 이벤트 입니다");
+			}
+		}
+		
+	}
+
+	@FXML
+	void initialize() throws RemoteException, ParseException {
+		assert content != null : "fx:id=\"content\" was not injected: check your FXML file 'eventScene.fxml'.";
+		assert listview != null : "fx:id=\"listview\" was not injected: check your FXML file 'eventScene.fxml'.";
+
+		try {
+			Registry reg = LocateRegistry.getRegistry("localhost", 1088);
+			event = (IEventService) reg.lookup("eventService");
+		} catch (RemoteException | NotBoundException e) {
+			System.out.println("event service 가져오기 실패");
+			e.printStackTrace();
+		}
+		eventList = event.allEvent();
+		ObservableList<String> list = FXCollections.observableArrayList();
+		content.setEditable(false);
+		
+		SimpleDateFormat form = new SimpleDateFormat("YY-MM-dd"); // 날짜를 18-11-23같은 모습으로 만들어준다
+		Date today = new Date(); // 현재 날짜
+		String todayStr = form.format(today); // 현재 날짜를 받는 문자열
+		today = form.parse(todayStr); // 문자가 되어있는 현재 날짜를 Date형으로 만들어 준다
+		for (int i = 0; i < eventList.size(); i++) {
+			int compare = today.compareTo(eventList.get(i).getEvent_end());
+			if(compare > 0) {
+				list.remove(eventList.get(i).getEvent_title());
+			}else if(compare < 0){
+				list.add(eventList.get(i).getEvent_title());
+			}else {
+				list.remove(eventList.get(i).getEvent_title());
+			}
+		}
+		
+
+		listview.setItems(list);
+		
+		endOfEvent();
+		
+		
+	}
+}

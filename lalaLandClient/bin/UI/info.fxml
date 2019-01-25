@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InfoController">
+   <children>
+      <AnchorPane layoutX="30.0" layoutY="179.0" prefHeight="236.0" prefWidth="368.0">
+         <children>
+            <ImageView fx:id="facebook_img" fitHeight="61.0" fitWidth="61.0" layoutX="14.0" layoutY="8.0" onMouseEntered="#hover" onMouseExited="#hoverOut" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Image/facebook.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="instagram_img" fitHeight="61.0" fitWidth="61.0" layoutX="14.0" layoutY="83.0" onMouseEntered="#hover1" onMouseExited="#hoverOut1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Image/instagram.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="15.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Image/customer-support.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="90.0" layoutY="33.0" prefHeight="34.0" prefWidth="224.0" text="LalaLand@facebook.com">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="90.0" layoutY="102.0" prefHeight="34.0" prefWidth="257.0" text="\@(LalaLand)Instagram.com">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="90.0" layoutY="180.0" prefHeight="34.0" prefWidth="224.0" text="1688-1688">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="29.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="41.0" layoutY="27.0" prefHeight="136.0" prefWidth="313.0" style="-fx-border-width: 5; -fx-border-color: orange;">
+         <children>
+            <Label layoutX="89.0" layoutY="14.0" prefHeight="51.0" prefWidth="122.0" text="이용 시간">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="65.0" text="10:00 ~ 21:00">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label fx:id="la1" layoutX="428.0" layoutY="63.0" prefHeight="34.0" prefWidth="285.0" text="라라랜드 소개">
+         <font>
+            <Font size="31.0" />
+         </font></Label>
+      <Label fx:id="la2" layoutX="428.0" layoutY="120.0" prefHeight="23.0" prefWidth="265.0" text="국내 최고 실내테마파크">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="la3" layoutX="428.0" layoutY="168.0" prefHeight="34.0" prefWidth="553.0" text="원하는 모든 것을 한 곳에서 즐길 수 있는 복합생활 공간, 바로 라라랜드입니다.">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="la4" layoutX="428.0" layoutY="202.0" prefHeight="34.0" prefWidth="477.0" text="고객님들의 만족을 위해서 꿈같은 하루를 선물해드리겠습니다.">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="la5" layoutX="428.0" layoutY="236.0" prefHeight="34.0" prefWidth="539.0" text="보다 상세한 정보를 얻기 원하신다면 이용 가이드북을 참조해주세요.">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="49.0" fitWidth="43.0" layoutX="705.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/download.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="762.0" layoutY="339.0" onMouseClicked="#click_download" prefHeight="61.0" prefWidth="164.0" style="-fx-border-color: orange; -fx-border-width: 5;" text="이용 가이드 북 .PDF" textAlignment="CENTER" />
+   </children>
+   <padding>
+      <Insets top="10.0" />
+   </padding>
+</AnchorPane>

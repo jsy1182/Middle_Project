@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchoPane" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="member.controller.MemberListController">
+   <children>
+      <Label fx:id="label" layoutX="43.0" layoutY="18.0" prefHeight="51.0" prefWidth="254.0" text="고객 리스트">
+         <font>
+            <Font name="Rockwell" size="42.0" />
+         </font>
+      </Label>
+      <TableView fx:id="notice" layoutX="21.0" layoutY="81.0" prefHeight="315.0" prefWidth="909.0" style="-fx-background-color: #D7F1FA; -fx-border-color: #41CDCD; -fx-border-width: 2.5;">
+        <columns>
+          <TableColumn fx:id="col_id" prefWidth="90.0" text="I   D" />
+            <TableColumn fx:id="col_name" prefWidth="125.0" text="이    름" />
+            <TableColumn fx:id="col_tel" prefWidth="154.0" text="전화번호" />
+            <TableColumn fx:id="col_bir" prefWidth="138.0" text="생 년 월 일" />
+            <TableColumn fx:id="col_mail" prefWidth="318.0" text="이메일" />
+            <TableColumn fx:id="col_membership" prefWidth="83.0" text="등   급" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_search" layoutX="884.0" layoutY="30.0" mnemonicParsing="false" onAction="#click_search" style="-fx-background-color: transparents; -fx-border-color: #41CDCD; -fx-border-width: 2.5;" text="검색" />
+      <TextField fx:id="name" layoutX="733.0" layoutY="32.0" promptText="이 름" />
+      <ImageView fitHeight="78.0" fitWidth="73.0" layoutX="272.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Image/businessman.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

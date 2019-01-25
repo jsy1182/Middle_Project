@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchoPane" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Food.controller.FoodCustomerMainController">
+   <children>
+      <Label layoutX="43.0" prefHeight="51.0" prefWidth="131.0" text="FOOD">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="42.0" />
+         </font>
+      </Label>
+      <VBox alignment="BOTTOM_CENTER" layoutX="6.0" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="911.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="TF" alignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="SELBUT" mnemonicParsing="false" onAction="#SELECTBUTTON" text="검색">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <TableView fx:id="TV" prefHeight="292.0" prefWidth="911.0">
+               <columns>
+                  <TableColumn fx:id="TVID" prefWidth="275.0" text="이름" />
+                  <TableColumn fx:id="TVPR" prefWidth="183.0" text="가격" />
+                  <TableColumn fx:id="TVCON" prefWidth="281.0" text="설명" />
+                  <TableColumn fx:id="TVSTO" prefWidth="209.0" text="판매점ID" />
+               </columns>
+            </TableView>
+            <HBox alignment="CENTER" prefHeight="68.0" prefWidth="911.0">
+               <children>
+                  <Button fx:id="backbtn1" mnemonicParsing="false" onAction="#backbtn" prefHeight="19.0" prefWidth="65.0" style="-fx-background-color: #ffffff; -fx-border-color: #ffcc00; -fx-border-width: 3; -fx-border-radius: 0;" text="뒤로">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <ImageView fitHeight="51.0" fitWidth="64.0" layoutX="162.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Image/음식.JPG" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

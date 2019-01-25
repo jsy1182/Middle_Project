@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coupon.CouponMainController">
+   <children>
+      <TableView fx:id="tableview" layoutX="25.0" layoutY="57.0" prefHeight="223.0" prefWidth="545.0">
+        <columns>
+          <TableColumn fx:id="colEventJoinId" maxWidth="110.0" prefWidth="110.0" text="이벤트 아이디" />
+          <TableColumn fx:id="colEventTitle" maxWidth="105.0" prefWidth="105.0" text="이벤트 이름" />
+            <TableColumn fx:id="colEventDisc" maxWidth="115.0" prefWidth="115.0" text="이벤트 할인율" />
+            <TableColumn fx:id="colEventStart" maxWidth="110.0" prefWidth="110.0" text="이벤트 시작일" />
+            <TableColumn fx:id="colEventEnd" maxWidth="105.0" prefWidth="105.0" text="이벤트 종료일" />
+        </columns>
+      </TableView>
+      <Label fx:id="title" layoutX="78.0" layoutY="19.0" prefHeight="28.0" prefWidth="122.0" text="쿠폰함">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="43.0" fitWidth="55.0" layoutX="25.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/coupon/coupons.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="54.0" fitWidth="65.0" layoutX="565.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/coupon/discount%20(1).png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

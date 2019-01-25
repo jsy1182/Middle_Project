@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchoPane" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #0000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Item.controller.ItemAddController">
+
+
+   <children>
+
+      <Label layoutX="171.0" prefHeight="54.0" prefWidth="283.0" text="ITEM ADD">
+
+
+
+         <font>
+
+            <Font name="Berlin Sans FB Demi Bold" size="46.0" />
+
+
+
+         </font>
+      </Label>
+      <VBox alignment="BOTTOM_CENTER" layoutY="85.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="537.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="16.0" prefWidth="686.0">
+               <children>
+                  <Label fx:id="lb1" text="이름 : ">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="TFNAME" prefHeight="29.0" prefWidth="265.0">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="0.0" prefWidth="686.0">
+               <children>
+                  <Label fx:id="lb2" text="가격 : ">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="TFPRICE" prefHeight="29.0" prefWidth="264.0">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="0.0" prefWidth="686.0">
+               <children>
+                  <Label fx:id="lb3" text="품절 : ">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="TFSOLD" prefHeight="29.0" prefWidth="264.0">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="lb4" prefHeight="19.0" prefWidth="62.0" text="내용 : ">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextArea fx:id="TACONTENT" prefHeight="45.0" prefWidth="258.0" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="16.0" prefWidth="686.0">
+               <children>
+                  <Label fx:id="lb5" prefHeight="19.0" prefWidth="110.0" text="편의시설 ID : ">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="COMBOBOX" onAction="#COMBOBOXCONVI" prefHeight="29.0" prefWidth="212.0" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="8.0" prefWidth="686.0">
+               <children>
+                  <Button fx:id="ADDBTN" mnemonicParsing="false" onAction="#ADDBUTTON" style="-fx-background-color: transparent; -fx-border-color: #ffcc00; -fx-border-width: 3;" text="추가">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="7.0" right="15.0" top="7.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="CANBTN" mnemonicParsing="false" onAction="#CANCLEBUTTON" style="-fx-background-color: transparent; -fx-border-color: #ffcc00; -fx-border-width: 3;" text="취소">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="15.0" right="7.0" top="7.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <ImageView fitHeight="107.0" fitWidth="106.0" layoutX="447.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Image/Item123123.JPG" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

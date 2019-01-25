@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="546.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminMainSceneController">
+   <children>
+      <ImageView fitHeight="568.0" fitWidth="1014.0" layoutX="-6.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/캡처.PNG" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutY="72.0" prefHeight="466.0" prefWidth="1008.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <MenuBar layoutX="488.0" layoutY="14.0" prefHeight="27.0" prefWidth="505.0" style="-fx-border-color: #660066; -fx-background-color: transparent; -fx-border-radius: 10;">
+               <menus>
+                  <Menu mnemonicParsing="false" text="고객관리">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#click_Member" text="고객 목록" />
+                     </items></Menu>
+                  <Menu mnemonicParsing="false" text="직원관리">
+                     <items>
+                      <MenuItem mnemonicParsing="false" onAction="#click_EMPList" text="직원 목록" />
+                     </items></Menu>
+                  <Menu mnemonicParsing="false" text="게시판관리">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#click_notice" text="공지사항" />
+                        <MenuItem mnemonicParsing="false" onAction="#click_QA" text="Q &amp; A" />
+                     </items></Menu>
+                  <Menu mnemonicParsing="false" text="매출관리">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#click_ManageSale" text="매출 관리" />
+                        <MenuItem mnemonicParsing="false" onAction="#click_viewBuy" text="구매내역" />
+                        <MenuItem mnemonicParsing="false" onAction="#click_viewTicket" text="입장권 관리" />
+                     </items></Menu>
+                  <Menu mnemonicParsing="false" text="이벤트관리">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#click_ManageEvent" text="이벤트 관리" />
+                     </items></Menu>
+                  <Menu mnemonicParsing="false" text="로그아웃">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#click_logout" text="로그아웃" />
+                     </items></Menu>
+               </menus>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </MenuBar>
+            <AnchorPane fx:id="anchorPane" layoutX="46.0" layoutY="50.0" prefHeight="366.0" prefWidth="913.0">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding></AnchorPane>
+         </children>
+      </AnchorPane>
+      <Label fx:id="label" layoutX="29.0" layoutY="-6.0" text="LALA LAND" textFill="#fcf1f1">
+         <font>
+            <Font name="Rage Italic" size="63.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="56.0" fitWidth="354.0" layoutX="23.0" layoutY="17.0" onMouseClicked="#click_lalaLand" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/LALALAND.gif" />
+         </image>
+      </ImageView>
+      <VBox alignment="BOTTOM_CENTER" layoutX="7.0" layoutY="58.0" onMouseEntered="#settext1" onMouseExited="#settext2" prefHeight="36.0" prefWidth="402.0">
+         <children>
+            <Label fx:id="text" prefHeight="0.0" prefWidth="192.0" text="클릭하면 메인화면으로 이동합니다." visible="false" />
+         </children>
+      </VBox>
+      <ImageView fitHeight="52.0" fitWidth="53.0" layoutX="934.0" layoutY="14.0" onMouseClicked="#click_message" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/mailbox.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="59.0" layoutX="863.0" layoutY="7.0" onMouseClicked="#click_voice" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/loudspeaker.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

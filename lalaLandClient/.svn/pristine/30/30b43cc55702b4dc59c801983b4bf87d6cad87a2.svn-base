@@ -1,0 +1,95 @@
+package Item.controller;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+public class ConvEmpMainController {
+
+	@FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private Button addbtn;
+    
+    @FXML
+    private AnchorPane anchoPane;
+
+    @FXML
+    private Button delbut;
+
+    @FXML
+    void FoodBtn(ActionEvent event) {
+    	Stage stage = (Stage) addbtn.getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Food/fxml/FoodMain.fxml"));
+        Parent addRoot;
+		try {
+			addRoot = loader.load();
+			anchoPane.getChildren().setAll(addRoot);
+//	        Scene addScene = new Scene(addRoot);
+//	        stage.setScene(addScene);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+
+    
+
+    @FXML
+    void click_con(ActionEvent event) {
+    	Stage stage = (Stage) addbtn.getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Item/fxml/ConvEmpMain.fxml"));
+        Parent addRoot;
+		try {
+			addRoot = loader.load();
+			anchoPane.getChildren().setAll(addRoot);
+
+//	        Scene addScene = new Scene(addRoot);
+//	        stage.setScene(addScene);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+
+    
+
+    @FXML
+    void itemBtn(ActionEvent event) {
+    	Stage stage = (Stage) addbtn.getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Item/fxml/ItemMain.fxml"));
+        Parent addRoot;
+		try {
+			addRoot = loader.load();
+			anchoPane.getChildren().setAll(addRoot);
+
+//	        Scene addScene = new Scene(addRoot);
+//	        stage.setScene(addScene);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+
+    @FXML
+    void initialize() {
+        assert addbtn != null : "fx:id=\"addbtn\" was not injected: check your FXML file 'ConvEmpMain.fxml'.";
+        assert delbut != null : "fx:id=\"delbut\" was not injected: check your FXML file 'ConvEmpMain.fxml'.";
+        assert anchoPane != null : "fx:id=\"anchoPane\" was not injected: check your FXML file 'ConvEmpMain.fxml'.";
+
+
+    }
+}

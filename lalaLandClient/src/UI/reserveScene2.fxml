@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="900.0" style="-fx-background-color: WHITE; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.reserve2Controller">
+   <children>
+      <TableView fx:id="table_1" layoutX="10.0" layoutY="82.0" prefHeight="311.0" prefWidth="471.0" style="-fx-border-color: #330066; -fx-border-width: 2; -fx-border-radius: 5;">
+         <columns>
+            <TableColumn fx:id="tb_id" prefWidth="136.0" text="아이디" />
+            <TableColumn fx:id="tb_time" prefWidth="144.0" text="예약시간" />
+            <TableColumn fx:id="tb_ride" prefWidth="209.0" text="놀이기구" />
+         </columns>
+      </TableView>
+      <Label layoutX="10.0" layoutY="7.0" text="My Magic Pass ">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="10.0" layoutY="57.0" text="원하는 어트랙션을 기다림없이 바로 즐기는 프리미엄 서비스!" />
+      <Label fx:id="font1" layoutX="516.0" layoutY="96.0" text="꼭 알아두세요" textFill="#d01313">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="font2" layoutX="518.0" layoutY="136.0" text="유의사항" />
+      <Label fx:id="font3" layoutX="518.0" layoutY="167.0" text="1. 매작퍄스눈 파손/ 훼손/분실 시 이용권 이용 및 재발행이 불가합니다." />
+      <Label fx:id="font4" layoutX="518.0" layoutY="199.0" text="2. 한 회원당 3번만 사용할 수 있습니다." />
+      <Label fx:id="font5" layoutX="518.0" layoutY="232.0" text="3. 이용시간이 지난 후 사용하지 못한 패스는 취소가 불가합니다." />
+      <Label fx:id="font6" layoutX="519.0" layoutY="263.0" text="4. 예약시 QR코드가 이메일로 발송됩니다." />
+      <Label fx:id="label_ride" layoutX="574.0" layoutY="356.0" />
+      <Label fx:id="label_time" layoutX="680.0" layoutY="357.0" />
+      <ImageView fx:id="img_reserve" fitHeight="57.0" fitWidth="80.0" layoutX="845.0" layoutY="343.0" onMouseClicked="#action_img_reserve" onMouseEntered="#hover" onMouseExited="#hoverOut" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/envelope.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

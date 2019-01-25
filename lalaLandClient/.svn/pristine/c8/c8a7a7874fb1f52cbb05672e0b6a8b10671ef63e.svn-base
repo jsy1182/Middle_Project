@@ -1,0 +1,95 @@
+package Item.controller;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+public class ConvCustomerMainController {
+
+	 @FXML
+	    private ResourceBundle resources;
+
+	    @FXML
+	    private URL location;
+	    
+
+	    @FXML
+	    private Button Itembtn;
+
+	    @FXML
+	    private Button foodbtn;
+	    
+	    @FXML
+	    private AnchorPane anchorPane;
+
+    @FXML
+    void Itembtn(ActionEvent event) {
+    	try {
+
+			Stage st;
+			st = (Stage) Itembtn.getScene().getWindow();
+
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Item/fxml/ItemCustomerMain.fxml"));
+			Parent addRoot = loader.load();
+			anchorPane.getChildren().setAll(addRoot);
+
+			// WritingController addController = loader.getController();
+
+			// addController.setMainController(this);
+			// addController.setContente(std);
+
+//			Scene addScene = new Scene(addRoot);
+//		st.setScene(addScene);
+//			st.show();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+
+    
+
+    @FXML
+    void foodbtn(ActionEvent event) {
+    	try {
+
+			Stage st;
+			st = (Stage) Itembtn.getScene().getWindow();
+
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Food/fxml/FoodCustomerMain.fxml"));
+			Parent addRoot = loader.load();
+			anchorPane.getChildren().setAll(addRoot);
+
+			// WritingController addController = loader.getController();
+
+			// addController.setMainController(this);
+			// addController.setContente(std);
+
+//			Scene addScene = new Scene(addRoot);
+//			st.setScene(addScene);
+//			st.show();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+
+    @FXML
+    void initialize() {
+        assert Itembtn != null : "fx:id=\"Itembtn\" was not injected: check your FXML file 'ConvCustomerMain.fxml'.";
+        assert foodbtn != null : "fx:id=\"foodbtn\" was not injected: check your FXML file 'ConvCustomerMain.fxml'.";
+        assert anchorPane != null : "fx:id=\"anchorPane\" was not injected: check your FXML file 'ConvCustomerMain.fxml'.";
+
+
+    }
+}

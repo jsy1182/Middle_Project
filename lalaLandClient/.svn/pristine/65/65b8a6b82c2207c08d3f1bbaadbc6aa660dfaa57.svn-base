@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <ImageView fitHeight="300.0" fitWidth="551.0" layoutX="-104.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/캡처.PNG" />
+         </image>
+      </ImageView>
+      <Label layoutX="84.0" layoutY="23.0" text="Congratulations" textFill="#eeebeb">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="74.0" layoutY="106.0" text="당신은 이제부터 라라랜드 주인공!!" textFill="#fff2f2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="190.0" layoutY="221.0" mnemonicParsing="false" style="-fx-background-color: 000000; -fx-border-color: white; -fx-border-radius: 10px;" text="확  인" textFill="#f2eded" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminViewTicketController">
+   <children>
+      <Label fx:id="lbtc2" alignment="CENTER" layoutX="10.0" layoutY="194.0" prefHeight="59.0" prefWidth="277.0" />
+      <Label fx:id="lbtc3" alignment="CENTER" layoutX="10.0" layoutY="276.0" prefHeight="59.0" prefWidth="277.0" />
+      <Label fx:id="lbtc4" alignment="CENTER" layoutX="529.0" layoutY="96.0" prefHeight="59.0" prefWidth="277.0" />
+      <Label fx:id="lbtc5" alignment="CENTER" layoutX="529.0" layoutY="172.0" prefHeight="59.0" prefWidth="277.0" />
+      <Label fx:id="lbtc6" alignment="CENTER" layoutX="529.0" layoutY="243.0" prefHeight="59.0" prefWidth="277.0" />
+      <Label fx:id="lbtc7" alignment="CENTER" layoutX="529.0" layoutY="318.0" prefHeight="59.0" prefWidth="277.0" />
+      <Label fx:id="lbtc1" alignment="CENTER" layoutX="10.0" layoutY="111.0" prefHeight="59.0" prefWidth="277.0" />
+      <Button fx:id="tc4btn" layoutX="806.0" layoutY="96.0" mnemonicParsing="false" onAction="#clk4" prefHeight="59.0" prefWidth="72.0" style="-fx-background-color: transparent; -fx-border-color: #4d4dff; -fx-border-radius: 80;" text="수정" />
+      <Label fx:id="lblmodi" layoutX="58.0" layoutY="-2.0" text="가격수정">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+      <Button fx:id="tc3btn" layoutX="287.0" layoutY="276.0" mnemonicParsing="false" onAction="#clk3" prefHeight="59.0" prefWidth="72.0" style="-fx-background-color: transparent; -fx-border-color: #4d4dff; -fx-border-radius: 80;" text="수정" />
+      <Button fx:id="tc2btn" layoutX="287.0" layoutY="194.0" mnemonicParsing="false" onAction="#clk2" prefHeight="59.0" prefWidth="72.0" style="-fx-background-color: transparent; -fx-border-color: #4d4dff; -fx-border-radius: 80;" text="수정" />
+      <Button fx:id="tc1btn" layoutX="287.0" layoutY="111.0" mnemonicParsing="false" onAction="#clktc1" prefHeight="59.0" prefWidth="72.0" style="-fx-background-color: transparent; -fx-border-color: #4d4dff; -fx-border-radius: 80;" text="수정" />
+      <Button fx:id="tc7" layoutX="806.0" layoutY="314.0" mnemonicParsing="false" onAction="#clktc7" prefHeight="59.0" prefWidth="72.0" style="-fx-background-color: transparent; -fx-border-color: #4d4dff; -fx-border-radius: 80;" text="수정" />
+      <Button fx:id="tc6" layoutX="806.0" layoutY="243.0" mnemonicParsing="false" onAction="#clicktx6" prefHeight="59.0" prefWidth="72.0" style="-fx-background-color: transparent; -fx-border-color: #4d4dff; -fx-border-radius: 80;" text="수정" />
+      <Button fx:id="tc5" layoutX="806.0" layoutY="170.0" mnemonicParsing="false" onAction="#clktc5" prefHeight="59.0" prefWidth="72.0" style="-fx-background-color: transparent; -fx-border-color: #4d4dff; -fx-border-radius: 80;" text="수정" />
+   </children>
+</AnchorPane>

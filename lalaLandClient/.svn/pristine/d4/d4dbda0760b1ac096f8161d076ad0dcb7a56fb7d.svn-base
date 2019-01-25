@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="240.0" prefWidth="326.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="member.controller.SearchID3Controller">
+   <children>
+      <ImageView fitHeight="300.0" fitWidth="556.0" layoutX="-87.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/찾기%20실패.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="95.0" layoutY="116.0" text="다시 시도해주세요" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="ok_btn" layoutX="104.0" layoutY="159.0" mnemonicParsing="false" onAction="#okBtn" prefHeight="31.0" prefWidth="66.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-radius: 10px;" text="확  인" textFill="#f2eded" />
+      <Label layoutX="37.0" layoutY="76.0" text="일치하는 회원이 없습니다." textFill="#fffdfd">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

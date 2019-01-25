@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminViewBuyController">
+   <children>
+      <TableView fx:id="table" layoutX="30.0" layoutY="103.0" prefHeight="289.0" prefWidth="840.0">
+         <columns>
+            <TableColumn fx:id="colbuyid" prefWidth="104.0" style="-fx-alignment: center;" text="구매번호" />
+            <TableColumn fx:id="colbuydate" prefWidth="173.0" style="-fx-alignment: center;" text="일자" />
+            <TableColumn fx:id="colsale" minWidth="0.0" prefWidth="116.0" style="-fx-alignment: center;" text="금액" />
+            <TableColumn fx:id="colticket" minWidth="0.0" prefWidth="90.0" style="-fx-alignment: center;" text="티켓" />
+            <TableColumn fx:id="colmem" prefWidth="98.0" style="-fx-alignment: center;" text="회원" />
+            <TableColumn fx:id="colevent" minWidth="0.0" prefWidth="124.0" style="-fx-alignment: center;" text="이벤트 참여" />
+            <TableColumn fx:id="colPay" prefWidth="158.0" style="-fx-alignment: center;" text="결제 상태" />
+         </columns>
+      </TableView>
+      <TextField fx:id="searchtxt" layoutX="181.0" layoutY="73.0" prefHeight="22.0" prefWidth="119.0" />
+      <Button fx:id="searchbtn" layoutX="310.0" layoutY="67.0" mnemonicParsing="false" onAction="#clksearchbtn" prefHeight="23.0" prefWidth="53.0" style="-fx-background-color: transparent; -fx-border-color: #b1b24b; -fx-border-width: 3;" text="검색" />
+      <ComboBox fx:id="com" layoutX="34.0" layoutY="69.0" prefHeight="23.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #b1b24b; -fx-border-width: 3;" />
+      <ImageView fitHeight="63.0" fitWidth="53.0" layoutX="363.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/coins.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="720.0" layoutY="61.0" mnemonicParsing="false" onAction="#click_ExcelDownload" prefHeight="29.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #ffcc00; -fx-border-width: 3;" text="Excel File download" />
+      <Label layoutX="30.0" text="purchase history">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="48.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

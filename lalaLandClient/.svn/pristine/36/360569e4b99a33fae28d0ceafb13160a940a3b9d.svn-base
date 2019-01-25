@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="900.0" style="-fx-background-color: WHITE; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.zoo_DarkController">
+   <children>
+      <ImageView fx:id="img_4" fitHeight="196.0" fitWidth="293.0" layoutX="84.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/스컹크.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img_3" fitHeight="187.0" fitWidth="300.0" layoutX="85.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/킨카주.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img_2" fitHeight="223.0" fitWidth="293.0" layoutX="84.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/섬샥더럼쥬ㅏ.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img_1" fitHeight="223.0" fitWidth="293.0" layoutX="84.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/족제비.PNG" />
+         </image>
+      </ImageView>
+      <Button fx:id="label_animalName" layoutX="441.0" layoutY="88.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="동물이름">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="789.0" layoutY="373.0" mnemonicParsing="false" style="-fx-background-color: #ffffff;" text="ZONE : 주토피아">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="combo_animalName" layoutX="593.0" layoutY="40.0" prefHeight="30.0" prefWidth="280.0" style="-fx-background-color: #ffffff; -fx-border-color: #b1b24b; -fx-border-width: 3;" />
+      <Label layoutX="20.0" layoutY="23.0" text="zootopia ">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="48.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_back" layoutX="6.0" layoutY="375.0" mnemonicParsing="false" onAction="#action_back" style="-fx-background-color: #ffffff;" text="뒤로" underline="true">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="animal_Explain" layoutX="438.0" layoutY="125.0" prefHeight="223.0" prefWidth="435.0" style="-fx-background-color: transparent;" />
+      <Label layoutX="214.0" layoutY="42.0" text="Dark Forest" textFill="#b1b24b">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="28.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="img_map" fitHeight="47.0" fitWidth="56.0" layoutX="824.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/맵.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img_next" fitHeight="39.0" fitWidth="47.0" layoutX="387.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/right-arrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img_back" fitHeight="39.0" fitWidth="47.0" layoutX="35.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/left-arrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="73.0" fitWidth="56.0" layoutX="327.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/flying-bat.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="465.0" prefWidth="401.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="member.controller.FixImformationController">
+   <children>
+      <ImageView fitHeight="594.0" fitWidth="484.0" layoutX="-82.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/다른이름으로%20저장.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="103.0" layoutY="58.0" text="내정보 수정" textFill="#f5eeee">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="34.0" />
+         </font>
+      </Label>
+      <Label fx:id="pass_text" layoutX="48.0" layoutY="341.0" text="비밀번호 : " textFill="#f2efef">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="passOk_text" layoutX="40.0" layoutY="398.0" text="비빌번호확인 :" textFill="#fcf8f8">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Label>
+      <Button fx:id="ok_btn" layoutX="95.0" layoutY="482.0" mnemonicParsing="false" onAction="#okBtn" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-radius: 10px;" text="확  인" textFill="#f2eded" />
+      <Button fx:id="can_btn" layoutX="219.0" layoutY="482.0" mnemonicParsing="false" onAction="#canBtn" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-radius: 10px;" text="취  소" textFill="#eeebeb" />
+      <PasswordField fx:id="pass" layoutX="132.0" layoutY="336.0" prefHeight="23.0" prefWidth="138.0" />
+      <PasswordField fx:id="passOk" layoutX="132.0" layoutY="393.0" prefHeight="23.0" prefWidth="138.0" />
+      <Label fx:id="tel_text" layoutX="43.0" layoutY="230.0" text="전화번호: " textFill="#f5f0f0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tel" layoutX="129.0" layoutY="228.0" prefHeight="23.0" prefWidth="138.0" />
+      <Label fx:id="mail_text" layoutX="47.0" layoutY="151.0" text="이메일 : " textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="mail" layoutX="124.0" layoutY="149.0" prefHeight="23.0" prefWidth="217.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GroupBuyController">
+   <children>
+      <Label fx:id="lb21" alignment="CENTER" layoutX="40.0" layoutY="213.0" prefHeight="98.0" prefWidth="179.0" />
+      <Label fx:id="lb22" alignment="CENTER" layoutX="227.0" layoutY="202.0" prefHeight="116.0" prefWidth="129.0" />
+      <Button fx:id="buytc2" layoutX="375.0" layoutY="218.0" mnemonicParsing="false" onAction="#clickBuyTC2" prefHeight="71.0" prefWidth="96.0" style="-fx-background-color: transparent; -fx-border-color: #ffcc00; -fx-border-width: 3;" text="구매" textFill="#1e1e1c" />
+      <Label fx:id="lbl" alignment="CENTER" layoutX="45.0" layoutY="9.0" prefHeight="116.0" prefWidth="326.0" text="Group PurChase" textFill="#1a1a1b">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="40.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dt" layoutX="769.0" layoutY="53.0" />
+      <Label fx:id="lbdate" alignment="CENTER" layoutX="668.0" layoutY="58.0" prefHeight="19.0" prefWidth="75.0" text="입장날짜" />
+      <Separator layoutX="10.0" layoutY="121.0" prefHeight="8.0" prefWidth="1008.0" style="-fx-background-color: grey;" />
+      <Button fx:id="btnminus" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="668.0" layoutY="218.0" mnemonicParsing="false" onAction="#clickmi" style="-fx-border-radius: 100; -fx-border-color: #ffcc00; -fx-background-color: transparent; -fx-border-width: 3;" text="-">
+         <font>
+            <Font name="System Italic" size="23.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnplus" layoutX="885.0" layoutY="218.0" mnemonicParsing="false" onAction="#clickplus" style="-fx-border-radius: 100; -fx-background-color: transparent; -fx-border-color: #ffcc00; -fx-border-width: 3;" text="+">
+         <font>
+            <Font name="System Italic" size="23.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblnum" alignment="CENTER" layoutX="735.0" layoutY="218.0" prefHeight="43.0" prefWidth="136.0" style="-fx-border-color: gray;" />
+      <Label fx:id="lblnum2" alignment="CENTER" layoutX="752.0" layoutY="161.0" prefHeight="34.0" prefWidth="96.0" text="수량선택" />
+      <Button fx:id="selnum" layoutX="690.0" layoutY="296.0" mnemonicParsing="false" onAction="#clicksel" prefHeight="43.0" prefWidth="236.0" style="-fx-background-color: #000099; -fx-border-width: 3; -fx-border-color: #ffcc00;" text="직접선택" textFill="WHITE" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="buy.ItemAndTicketViewMainController">
+   <children>
+      <ImageView fx:id="ticketimg" fitHeight="287.0" fitWidth="304.0" layoutX="77.0" layoutY="51.0" onMouseClicked="#clkticket" onMouseEntered="#enterTicket" onMouseExited="#exitTicket" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/ticketicon.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="giftimg" fitHeight="214.0" fitWidth="224.0" layoutX="595.0" layoutY="85.0" onMouseClicked="#clkgift" onMouseEntered="#enterGift" onMouseExited="#ExitGift" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/kr.co.vp.giftshop.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lbl1" alignment="CENTER" layoutX="58.0" layoutY="327.0" prefHeight="62.0" prefWidth="339.0" />
+      <Label fx:id="lbl2" alignment="CENTER" layoutX="568.0" layoutY="327.0" prefHeight="62.0" prefWidth="339.0" />
+      <Line endX="-7.0" endY="211.0" layoutX="478.0" layoutY="125.0" startX="-7.0" startY="-64.0" stroke="#ccccd3" strokeWidth="3.0" />
+   </children>
+</AnchorPane>

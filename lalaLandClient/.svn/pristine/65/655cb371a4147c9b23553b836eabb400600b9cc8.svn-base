@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coupon.CouponMainController">
+   <children>
+      <TableView fx:id="tableview" layoutX="25.0" layoutY="57.0" prefHeight="223.0" prefWidth="550.0">
+        <columns>
+          <TableColumn fx:id="colEventJoinId" maxWidth="110.0" prefWidth="110.0" text="이벤트 아이디" />
+          <TableColumn fx:id="colEventTitle" maxWidth="105.0" prefWidth="105.0" text="이벤트 이름" />
+            <TableColumn fx:id="colEventDisc" maxWidth="115.0" prefWidth="115.0" text="이벤트 할인율" />
+            <TableColumn fx:id="colEventStart" maxWidth="110.0" prefWidth="110.0" text="이벤트 시작일" />
+            <TableColumn fx:id="colEventEnd" maxWidth="110.0" prefWidth="110.0" text="이벤트 종료일" />
+        </columns>
+      </TableView>
+      <Label layoutX="24.0" layoutY="14.0" prefHeight="28.0" prefWidth="122.0" text="쿠폰함">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

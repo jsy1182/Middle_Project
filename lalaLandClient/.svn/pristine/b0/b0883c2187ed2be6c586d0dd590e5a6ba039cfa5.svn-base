@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="900.0" style="-fx-background-color: WHITE; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.rideController">
+   <children>
+      <Slider fx:id="scrollbar_height" layoutX="36.0" layoutY="96.0" max="190.0" min="50.0" prefHeight="14.0" prefWidth="235.0" />
+      <Label layoutX="39.0" layoutY="112.0" text="50" />
+      <Button fx:id="btn_search" layoutX="287.0" layoutY="85.0" mnemonicParsing="false" onAction="#action_search" style="-fx-background-color: #ffffff; -fx-border-color: #b1b24b; -fx-border-width: 3;" text="search" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b1b24b" height="37.0" layoutX="550.0" layoutY="138.0" stroke="#b1b24b" strokeType="INSIDE" width="328.0" />
+      <ComboBox fx:id="combo_ride" layoutX="356.0" layoutY="85.0" prefWidth="150.0" style="-fx-background-color: #ffffff; -fx-border-color: #b1b24b; -fx-border-width: 3;" />
+      <TextArea fx:id="textarea_explain" layoutX="27.0" layoutY="163.0" prefHeight="184.0" prefWidth="480.0" style="-fx-background-color: transparent;" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b1b24b" height="37.0" layoutX="551.0" layoutY="207.0" stroke="#b1b24b" strokeType="INSIDE" width="328.0" />
+      <Label layoutX="568.0" layoutY="149.0" text="건설날짜" textFill="#f2ecec" />
+      <Label layoutX="569.0" layoutY="183.0" text="최대 탑승인원" />
+      <Label layoutX="570.0" layoutY="220.0" text="난이도" textFill="#f8eaea" />
+      <Label layoutX="570.0" layoutY="255.0" text="제한 키" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b1b24b" height="37.0" layoutX="552.0" layoutY="280.0" stroke="#b1b24b" strokeType="INSIDE" width="328.0" />
+      <Label layoutX="571.0" layoutY="289.0" text="운행여부" textFill="#fcf2f2" />
+      <Label layoutX="43.0" layoutY="77.0" text="키에 맞는 어트랙션 찾기" />
+      <Label fx:id="label_height" layoutX="193.0" layoutY="78.0" text="50" />
+      <Label layoutX="228.0" layoutY="76.0" text="cm" />
+      <Button fx:id="btn_parade" layoutX="550.0" layoutY="87.0" mnemonicParsing="false" onAction="#action_parade" onMouseEntered="#hover1" onMouseExited="#hoverOut1" prefHeight="37.0" prefWidth="328.0" style="-fx-background-color: #FAFABE; -fx-border-color: #ffcc00; -fx-border-width: 3; -fx-border-radius: 0;" text="parade">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="99.0" layoutY="112.0" text="90" />
+      <Label layoutX="126.0" layoutY="112.0" text="110" />
+      <Label layoutX="158.0" layoutY="112.0" text="130" />
+      <Label layoutX="189.0" layoutY="112.0" text="150" />
+      <Label layoutX="250.0" layoutY="112.0" text="190 (cm)" />
+      <Label fx:id="label_date" layoutX="713.0" layoutY="149.0" text="Label" textFill="#f5eded" />
+      <Label fx:id="label_number" layoutX="713.0" layoutY="183.0" text="Label" />
+      <Label fx:id="label_level" layoutX="713.0" layoutY="221.0" text="Label" textFill="#eee4e4" />
+      <Label fx:id="label_limit" layoutX="713.0" layoutY="255.0" text="Label" />
+      <Label fx:id="label_ok" layoutX="713.0" layoutY="290.0" text="Label" textFill="#f8f3f3" />
+      <Label fx:id="albel_rideName" layoutX="33.0" layoutY="134.0" text="Label" />
+      <ImageView fx:id="img_map1" fitHeight="47.0" fitWidth="56.0" layoutX="831.0" layoutY="332.0" onMouseEntered="#hover" onMouseExited="#hoverOut" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/맵.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="29.0" layoutY="20.0" text="attraction">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="252.0" layoutY="39.0" text="amusement" textFill="#b1b24b">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="28.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="57.0" fitWidth="60.0" layoutX="378.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/balloons.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

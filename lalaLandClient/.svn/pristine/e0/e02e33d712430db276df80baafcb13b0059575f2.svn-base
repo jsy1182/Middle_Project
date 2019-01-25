@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchoPane" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Board.controller.BoardEmpMainController">
+   <children>
+   
+            <Label fx:id="label" layoutX="55.0" layoutY="1.0" prefHeight="51.0" prefWidth="180.0" text="NOTICE">
+         <font>
+            <Font name="Berlin Sans FB" size="42.0" />
+         </font>
+      </Label>
+      <TableView fx:id="notice" layoutX="26.0" layoutY="78.0" onMouseClicked="#viewBoard" prefHeight="315.0" prefWidth="909.0">
+        <columns>
+          <TableColumn fx:id="col_no" prefWidth="75.0" text="No." />
+          <TableColumn fx:id="col_title" prefWidth="565.0" text="제목" />
+            <TableColumn fx:id="col_writer" prefWidth="126.0" text="작성자" />
+            <TableColumn fx:id="col_date" prefWidth="142.0" text="작성일" />
+        </columns>
+      </TableView>
+      <Pagination fx:id="pagination" layoutX="275.0" layoutY="382.0" prefHeight="59.0" prefWidth="429.0" />
+      <ComboBox fx:id="combo" layoutX="519.0" layoutY="40.0" prefWidth="150.0" />
+      <TextField fx:id="tf" layoutX="678.0" layoutY="40.0" prefHeight="23.0" prefWidth="210.0" />
+      <Button fx:id="btn_search" layoutX="906.0" layoutY="40.0" mnemonicParsing="false" onAction="#click_search" text="검색" />
+   </children>
+   <padding>
+      <Insets right="15.0" />
+   </padding>
+</AnchorPane>

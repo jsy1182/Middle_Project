@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchoPane" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Board.controller.ViewQAAdminController">
+	<children>
+				<Label layoutX="128.0" layoutY="42.0" text="제 목 :" />
+      <TextField fx:id="tf_title" layoutX="184.0" layoutY="38.0" prefHeight="23.0" prefWidth="278.0" />
+      <Label layoutX="768.0" layoutY="72.0" text="날 짜" />
+      <Label fx:id="la_date" layoutX="815.0" layoutY="72.0" prefHeight="15.0" prefWidth="109.0" />
+      <TextArea fx:id="ta" layoutX="107.0" layoutY="100.0" prefHeight="154.0" prefWidth="817.0" />
+      <RadioButton fx:id="radio" layoutX="290.0" layoutY="72.0" mnemonicParsing="false" text="비밀글" />
+      <ImageView fitHeight="105.0" fitWidth="87.0" layoutX="6.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Image/qa.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="answer" layoutX="107.0" layoutY="283.0" prefHeight="117.0" prefWidth="817.0" />
+      <Label fx:id="la_answer" layoutX="112.0" layoutY="258.0" text="답변">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_" layoutX="388.0" layoutY="406.0" mnemonicParsing="false" onAction="#click_update" prefHeight="27.0" prefWidth="76.0" text="답변 등록" />
+      <Button fx:id="btn_delete" layoutX="479.0" layoutY="406.0" mnemonicParsing="false" onAction="#click_delete" prefHeight="27.0" prefWidth="76.0" text="삭제하기" />
+      <Button fx:id="btn_goback" layoutX="568.0" layoutY="406.0" mnemonicParsing="false" onAction="#click_goback" prefHeight="27.0" prefWidth="76.0" text="뒤로가기" />
+      <Label layoutX="128.0" layoutY="72.0" text="작성자" />
+      <Label fx:id="la_writer" layoutX="184.0" layoutY="72.0" prefHeight="15.0" prefWidth="76.0" />
+      <TextField fx:id="tf_secret" layoutX="362.0" layoutY="69.0" prefHeight="23.0" prefWidth="109.0" />
+      <Label fx:id="la_reply2" layoutX="748.0" layoutY="258.0" text="작성자">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="la_reply" layoutX="814.0" layoutY="261.0" prefHeight="15.0" prefWidth="100.0" text="Label" />
+	</children>
+</AnchorPane>
