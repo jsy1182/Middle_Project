@@ -1,0 +1,43 @@
+1541980583011	Rename type 'Admin'
+1541980588932	Rename type 'Animal'
+1541980596191	Rename type 'Annual_member'
+1541980600079	Rename type 'Attend'
+1541980604286	Rename type 'Board'
+1541980608526	Rename type 'Buy'
+1541980612619	Rename type 'Convenience'
+1541980617574	Rename type 'Course'
+1541980621686	Rename type 'Emp'
+1541980627316	Rename type 'Event_join'
+1541980636261	Rename type 'Event'
+1541980641714	Rename type 'Farm'
+1541980645967	Rename type 'Food'
+1541980649644	Rename type 'Item_buy'
+1541980653557	Rename type 'Item'
+1541980663619	Rename type 'Message'
+1541980670257	Rename type 'Parade'
+1541980673829	Rename type 'Reply'
+1541980677630	Rename type 'Reserve'
+1541980685853	Rename type 'Ride'
+1541980689858	Rename type 'Ticket'
+1541981385134	Copy package
+1541990410871	Rename compilation unit 'IBoradDao.java'
+1541990548282	Delete element
+1541990550982	Delete element
+1541990566363	Delete element
+1541990568563	Delete element
+1541998812283	Delete element
+1542024725006	Copy compilation unit
+1542067270508	Delete element
+1542067272591	Delete element
+1542067275738	Delete element
+1542067514932	Copy package
+1542069878170	Copy compilation unit
+1542250236920	Delete element
+1542250581458	Delete element
+1542250591978	Delete element
+1542327191117	Copy compilation unit
+1542327240364	Copy compilation unit
+1542365259951	Copy compilation unit
+1542365275304	Copy compilation unit
+1542365599226	Copy compilation unit
+1542429225045	Copy compilation unit
