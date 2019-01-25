@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="eventJoin">
+	<typeAlias alias="eventJoinVO" type="vo.Event_joinVO" />
+	
+	<select id="allEventJoin" resultClass="eventJoinVO">
+		select * from event_join
+	</select>
+		
+	<insert id="insertEventJoin" parameterClass="eventJoinVO">
+		insert into Event_Join(ej_ID,mem_id,event_id)
+		values('ej' || eventjoin_seq.nextVal, #mem_id#,#event_id#)
+	</insert>	
+	
+	<select id="selectMemId" parameterClass="string" resultClass="eventJoinVO">
+		select event_join.ej_Id,event.event_title, 
+		event.event_disc, event.event_start, event.event_end
+		from event_join, event 
+		where event_join.event_id = #event_id#
+		and event_join.mem_id = #mem_id#
+	</select>
+		
+</sqlMap>

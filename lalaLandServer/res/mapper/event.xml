@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="event">
+	<typeAlias alias="eventVO" type="vo.EventVO" />
+
+	<select id="allEvent" resultClass="eventVO">
+		select
+		event_id,event_title,event_content,event_disc,
+		To_Date(event_start,'YY-MM-dd') event_start,
+		To_Date(event_end,'YY-MM-dd') event_end
+		from event
+	</select>
+
+	<insert id="insertEvent" parameterClass="eventVO">
+		insert into
+		event(event_id,event_title,event_content,event_disc,event_start,event_end)
+		values('ev'|| event_seq.nextVal,#event_title#
+		,#event_content#,#event_disc#,#event_start#,#event_end#)
+	</insert>
+
+	<update id="updateEvent" parameterClass="eventVO">
+		update event
+		set event_title =#event_title#,event_content=#event_content#,
+		event_disc=#event_disc#,event_start=#event_start#,event_end=#event_end#
+		where event_id=#event_id#
+	</update>
+
+</sqlMap>

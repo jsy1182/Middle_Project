@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="food">
+<typeAlias alias="foodVO" type="vo.FoodVO"/>
+<typeAlias alias ="convenienceVO"  type="vo.ConvenienceVO"/>
+
+<select id="selectFoodAll" resultClass="foodVO">
+select * from food 
+</select>
+
+<select id="selectFoodByName" parameterClass="string" resultClass="foodVO">
+select * from food where food_name like '%' || #food_name# || '%'
+
+</select>
+
+<insert id="insertFood" parameterClass="foodVO" >
+insert into food values ('fd' || food_seq.nextVal,#food_name#,#food_price#,#food_content#,#con_id#)
+</insert> 
+
+<select id="selectConvenAll" resultClass="convenienceVO">
+select * from convenience
+</select>
+
+<delete id="deleteFood" parameterClass="String">
+delete from food where food_id=#food_id#
+</delete>
+
+
+<update id="updateFood" parameterClass="foodVO">
+	update food set 
+		food_name=#food_name#,
+		food_price=#food_price#,
+		food_content=#food_content#,
+		con_id=#con_id#
+		where food_id =#food_id#
+</update>
+
+</sqlMap>

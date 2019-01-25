@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="member">
+<typeAlias alias="memberVO" type="vo.MemberVO"/>
+<typeAlias alias="adminVO" type="vo.AdminVO"/>
+<typeAlias alias="empVO" type="vo.EmpVO"/>
+<typeAlias alias="wiseVO" type="vo.WiseSayingVO"/>
+
+<select id="getAllMemberList" resultClass="memberVO" >
+	select MEM_ID, MEM_PASS,MEM_NAME,to_char(mem_bir,'YYYY-MM-DD') mem_bir,MEM_TEL,MEM_MAIL,MEM_GRADE,NVL(SALESTICKET,0) SALESTICKET from member
+
+</select> 
+
+<insert id = "insertMember" parameterClass = "memberVO">
+	insert into member
+	(mem_id, mem_pass, mem_name, mem_bir, mem_tel, mem_mail, mem_grade)
+	values(#mem_id#, #mem_pass#, #mem_name#, #mem_bir#, #mem_tel#, #mem_mail#, #mem_grade#)
+</insert>
+
+<delete id = "deleteMember" parameterClass="String">
+	delete from member where mem_id=#mem_id#
+</delete>
+
+<select id = "getCountMember" parameterClass="String" resultClass="int">
+	select count(*) from member where mem_id = #mem_id#
+</select>
+
+<select id = "getCounMemberEamil" parameterClass="String" resultClass="int">
+	select count(*) from member where mem_mail = #data#
+</select>
+
+<select id = "logInMember" parameterClass="map" resultClass="memberVO">
+	select 
+		MEM_ID, MEM_PASS,MEM_NAME,to_char(mem_bir,'YYYY-MM-DD') mem_bir,
+		MEM_TEL,MEM_MAIL,MEM_GRADE,NVL(SALESTICKET,0) SALESTICKET 
+	from member
+	where mem_id=#mem_id# and mem_pass=#mem_pass#
+</select>
+
+<select id = "searchId" parameterClass="map" resultClass="memberVO">
+	select 
+		MEM_ID, MEM_PASS,MEM_NAME,to_char(mem_bir,'YYYY-MM-DD') mem_bir,
+		MEM_TEL,MEM_MAIL,MEM_GRADE,NVL(SALESTICKET,0) SALESTICKET 
+	 from member where mem_name=#mem_name# and mem_mail=#mem_mail#
+</select>
+
+<select id="searchPass" parameterClass="map" resultClass="memberVO">
+	select
+		MEM_ID, MEM_PASS,MEM_NAME,to_char(mem_bir,'YYYY-MM-DD') mem_bir,
+		MEM_TEL,MEM_MAIL,MEM_GRADE,NVL(SALESTICKET,0) SALESTICKET  
+	from member where mem_id=#mem_id# and mem_mail=#mem_mail#
+</select>
+
+<!-- 비밀번호 찾기에서 임시비밀번호로 수정 -->
+<update id="changePass" parameterClass="memberVO">
+	update member set mem_pass=#mem_pass# where mem_id=#mem_id#
+</update>
+
+<!-- 내정보 수정에서 나의 정보를 수정 -->
+<update id="fixInformation" parameterClass="memberVO">
+	update member set mem_mail=#mem_mail#,mem_tel=#mem_tel#,mem_pass=#mem_pass#, salesticket=#salesticket#
+	where mem_id=#mem_id#
+</update>
+
+<update id="fixInformationEmp" parameterClass="empVO">
+	update emp set emp_mail=#emp_mail#, emp_tel=#emp_tel#, emp_pass=#emp_pass# where emp_id=#emp_id#
+</update>
+
+<select id="LogInAdmin" parameterClass="map" resultClass="adminVO">
+	select * from admin where admin_id=#mem_id# and admin_pass=#mem_pass#
+</select>
+
+<select id="LogInEmp" parameterClass="map" resultClass="empVO">
+	select * from emp where emp_id=#mem_id# and emp_pass=#mem_pass#
+</select>
+
+<select id = "getCountEmp" parameterClass="String" resultClass="int">
+	select count(*) from emp where emp_id = #data#
+</select>
+
+
+<insert id = "insertEmp" parameterClass = "empVO">
+	insert into emp
+	(emp_id, emp_pass, emp_iden, emp_tel, emp_bir, emp_mail)
+	values(#emp_id#, #emp_pass#, #emp_iden#, #emp_tel#, #emp_bir#, #emp_mail#)
+</insert>
+
+<select id = "searchemp" parameterClass="String" resultClass="empVO">
+	select emp_id, emp_pass, emp_iden, emp_tel, to_char(emp_bir,'YYYY-MM-DD') emp_bir, emp_mail from emp where emp_iden=#emp_iden#
+</select>
+
+<delete id="deleteemp" parameterClass="String" >
+	delete from emp where emp_id = #emp_id#
+</delete>
+
+
+<select id = "searchmember" parameterClass="String" resultClass="memberVO">
+	select
+		MEM_ID, MEM_PASS,MEM_NAME,to_char(mem_bir,'YYYY-MM-DD') mem_bir,
+		MEM_TEL,MEM_MAIL,MEM_GRADE,NVL(SALESTICKET,0) SALESTICKET  
+ 	from member where mem_name like '%' || #mem_name# ||'%'
+</select>
+
+<!-- <select id = "sumSales" parameterClass="string" resultClass="memberVO">
+	select *,sum(sales) salesticket from buy where ticket_id != tc007 group by mem_id
+</select> -->
+
+<!-- 회원별 구매 금액을 업데이트  -->
+<update id="updateMemberSales" parameterClass="string" >
+	update  member set SALESTICKET =
+	     nvl((select sum(sales) from buy where ticket_id != 'tc007' and mem_id = #mem_id#),0) 
+	 where mem_id =#mem_id#
+</update>
+
+
+<update id = "membershipGrade" parameterClass="memberVO">
+	update member 
+	set mem_grade= #mem_grade#  
+	where mem_id = #mem_id#
+</update>
+
+<select id = "getAllEmp" resultClass="empVO">
+	select * from emp
+</select>
+
+<select id="getWiseContent" resultClass="String" parameterClass="String">
+	select wise_content from wise_saying where wise_id=#wise_id#
+</select>
+
+
+</sqlMap>

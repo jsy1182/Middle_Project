@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="item">
+<typeAlias alias="itemVO" type="vo.ItemVO"/>
+<typeAlias alias ="convenienceVO"  type="vo.ConvenienceVO"/>
+<typeAlias alias ="itemBuyVO"  type="vo.Item_buyVO"/>
+
+<select id="selectItemAll" resultClass="itemVO">
+select * from item 
+</select>
+
+<select id="selectItemByName" parameterClass="string" resultClass="itemVO">
+select * from item where item_name like '%' || #item_name# || '%'
+
+</select>
+
+<insert id="insertItem" parameterClass="itemVO" >
+insert into item values 
+('it' || item_seq.nextVal,#item_name#,#item_price#,#item_sold#,#item_content#,#con_id#)
+</insert> 
+
+<select id="selectConvenAll" resultClass="convenienceVO">
+select * from convenience
+</select>
+
+<delete id="deleteItem" parameterClass="String">
+delete from item where item_id=#item_id#
+</delete>
+
+
+<update id="updateItem" parameterClass="ItemVO">
+	update Item set 
+		item_name=#item_name#,
+		item_price=#item_price#,
+		item_sold=#item_sold#,
+		item_content=#item_content#,
+		con_id=#con_id#
+		where item_id =#item_id#
+</update>
+
+<insert id="insertItemBuy" parameterClass="itemBuyVO">
+insert into item_buy values
+('ib' || substr( ('0000' || to_char(item_buy_seq.nextVal)), Length(to_char(item_buy_seq.nextVal))+1, 4)
+							,#item_id#,#mem_id#,sysdate,#itemBuy_refend#,#itemBuy_sales#)
+</insert>
+
+<select id="selectItemBuyAll" resultClass="ItemBuyVO">
+select * from item_buy order by Itembuy_Id desc
+</select>
+
+<select id="selectItemBuyItemNameRefund" resultClass="ItemBuyVO">
+select item_buy.*, (select item_name from item where item_id=Item_Buy.Item_Id) Item_name from item_buy order by Itembuy_refend 
+
+</select>
+
+<update id="updateItemBuy" parameterClass="ItemBuyVO" >
+update Item_buy set
+		itemBuy_refend=#itemBuy_refend# where itembuy_id =#itemBuy_id#
+</update>
+
+</sqlMap>

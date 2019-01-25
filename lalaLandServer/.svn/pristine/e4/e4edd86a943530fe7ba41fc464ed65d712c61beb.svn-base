@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="ride">
+	<typeAlias alias="rideVO" type="vo.RideVO"/>
+	<typeAlias alias="paradeVO" type="vo.ParadeVO"/>
+	
+	
+	<!-- 콤보박스 놀이기구 이름 가져오기 -->
+	<select id="getComboListRide" parameterClass="int" resultClass="String">
+	<![CDATA[
+		select ride_name from ride where ride_height <= #ride_height#
+	]]>
+	</select>
+	
+	
+	<!-- 놀이기구 설명가져오기 -->
+	<select id="getRideExplain" parameterClass="String" resultClass="String">
+		select ride_content from ride where ride_name = #ride_name#
+	</select>
+	
+	<!-- 놀이기구 건설날짜, 최대 탑승인원, 난이도, 제한 키, 운행여부 가져오기 -->
+	<select id="getRideInfo" parameterClass="String" resultClass="rideVO">
+		select ride_date, ride_max, ride_diff, ride_height, ride_iden from ride
+		where ride_name = #ride_name#
+	</select>
+	
+	<select id="getAllParade" resultClass="paradeVO">
+		select * from parade 
+	</select>
+	
+	<select id="getAllRide" resultClass="rideVO">
+		select 
+		RIDE_ID, RIDE_NAME, to_char(RIDE_DATE,'yyyy-mm-dd') RIDE_DATE, RIDE_POS, RIDE_MAX, RIDE_DIFF, RIDE_HEIGHT, RIDE_CONTENT, RIDE_IDEN
+		from ride order by ride_id
+	</select>
+	
+	<insert id="insertRide" parameterClass="rideVO">
+		insert into ride
+		values( 'rd0'||ride_seq.nextVal, #ride_name#, #ride_date#, 
+		#ride_pos#, #ride_max#, #ride_diff#, #ride_height#, #ride_content#, #ride_iden#)
+	</insert>
+	
+	<delete id="deleteRide" parameterClass="String">
+		delete from ride where ride_id = #ride_id#
+	</delete>
+	
+	<update id="updateRide" parameterClass="rideVO">
+		update ride
+		set ride_name = #ride_name#,
+		ride_date = #ride_date#,
+		ride_max = #ride_max#,
+		ride_diff = #ride_diff#,
+		ride_height = #ride_height#,
+		ride_content = #ride_content#,
+		ride_iden = #ride_iden#
+		where ride_id = #ride_id#
+	</update>
+</sqlMap>

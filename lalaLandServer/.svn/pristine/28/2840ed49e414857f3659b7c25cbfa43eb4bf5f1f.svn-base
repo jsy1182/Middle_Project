@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="reserve">
+	<typeAlias alias="reserveVO" type="vo.ReserveVO"/>
+	<typeAlias alias="memberVO2" type="vo.MemberVO"/>
+	<typeAlias alias="rideVO2" type="vo.RideVO"/>
+	<select id="getRideName" resultClass="rideVO2">
+		select ride_name from ride
+	</select>
+	
+	<select id="getRideId" resultClass="String" parameterClass="String">
+		select ride_id from ride where ride_name = #ride_name#
+	</select>
+
+	<insert id="insertReserve" parameterClass="reserveVO">
+		insert into reserve (res_id, res_time, ride_id, mem_id)
+		values ( 're'||reserve_seq.nextVal, #res_time#, #ride_id#, #mem_id# )
+	</insert>
+
+	<select id="getEmail" parameterClass="String" resultClass="String">
+		select mem_mail from member where mem_id = #mem_id#
+	</select>
+	
+	<select id="countReserve" parameterClass="reserveVO" resultClass="int">
+		select count(*) from reserve 
+		where mem_id = #mem_id# and res_time = #res_time# and ride_id = #ride_id#
+	</select>
+	
+	<select id="limitThreeReserve" parameterClass="String" resultClass="int">
+		select count(*) from reserve where mem_id = #mem_id#
+	</select>
+	
+	<select id="getAllReserve" parameterClass="String" resultClass="reserveVO">
+		select distinct mem_id
+    		  ,( select ride_name from ride where ride_id = r1.ride_id ) ride_name
+    		  ,res_time
+			   from reserve r1, ride r2
+			   where r1.mem_id = #mem_id#
+	</select>
+	
+	<select id="getSelectRideId" parameterClass="String" resultClass="String">
+		select ride_id from ride where ride_name = #ride_name#
+	</select>
+	
+	<delete id="deleteReserve" parameterClass="reserveVO">
+		delete from reserve where mem_id = #mem_id# and ride_id = #ride_id# and res_time = #res_time#
+	</delete>
+	
+	<delete id="deleteAll" parameterClass="String">
+		delete from reserve where mem_id = #mem_id#
+	</delete>
+</sqlMap>

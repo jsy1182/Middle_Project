@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="message">
+	<typeAlias alias="messageVO" type="vo.MessageVO" />
+	<typeAlias alias="voiceVO" type="vo.VoiceVO" />
+
+	<!-- 메세지 작성 -->
+	<insert id="insertMessage" parameterClass="messageVO" >
+		insert into message values('ms'||message_seq.nextVal,#message_from#,#message_to#,sysdate,#message_content#)
+	</insert>
+	
+	<!-- 메세지  리스트 읽기 -->
+	<select id="selectMessageList" parameterClass="string" resultClass="messageVO">
+		select message_id,message_from,message_to,to_char(message_date,'yyyy-MM-DD hh:mm') message_date,message_content from message where message_to=#data#
+	</select>
+	
+	<!-- 메시지 읽기 -->
+	<select id="selectMessage" parameterClass="string" resultClass="messageVO">
+		select message_id,message_from,message_to,to_char(message_date,'yyyy-MM-DD hh:mm') message_date,message_content from message where message_id=#data#
+	</select>
+	
+	<!-- 메세지 삭제 -->
+	<delete id="deleteMessage" parameterClass="string">
+		delete from message where message_id=#data#
+	</delete>
+	
+	<!-- 고객소리함 추가 -->
+	<insert id="insertVoice" parameterClass="voiceVO">
+		insert into voice values('vo'||voice_seq.nextVal,sysdate,#voice_content#)
+	</insert>
+
+	<!-- 고객소리함 삭제 -->
+	<delete id="deleteVoice" parameterClass="string">
+		delete from voice where voice_id=#data#
+	</delete>
+	
+	<!-- 고객소리함 리스트 -->
+	<select id="selectVoice" resultClass="voiceVO" >
+		select * from voice
+	</select>
+	
+</sqlMap>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="attend">
+	<typeAlias alias="attendVO" type="vo.AttendVO" />
+
+	<select id="attendCheck" parameterClass="attendVO" resultClass="int">
+		select count(*) from attend 
+		where attend_date = #attend_date# 
+		and mem_id = #mem_id#
+	</select>
+	
+	<insert id="insertAttend" parameterClass="attendVO">
+		insert into attend(attend_id,attend_date,attend_yes,mem_id) 
+		values('at'|| attend_seq.nextVal ,sysdate,#attend_yes#,#mem_id#)
+	</insert>
+</sqlMap>
+	
+	
+	
+	
+	
+	
+	

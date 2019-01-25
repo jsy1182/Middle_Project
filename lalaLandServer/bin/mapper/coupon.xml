@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="coupon">
+	<typeAlias alias="couponVO" type="vo.CouponVO" />
+	
+	<select id="showCoupon" parameterClass="string" resultClass="couponVO">
+		select ej.ej_id ej_id,
+		ev.event_title event_title, 
+		ev.event_disc event_disc, 
+		To_date(ev.event_start,'yy-MM-dd') event_start, 
+		To_date(ev.event_end,'yy-MM-dd') event_end
+		from event_join ej, event ev
+		where ej.event_id = ev.event_id
+		and ej.mem_id = #mem_id#
+	</select>
+		
+</sqlMap>

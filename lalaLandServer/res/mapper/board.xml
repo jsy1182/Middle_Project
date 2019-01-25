@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="board">
+	<typeAlias alias="boardVO" type="vo.BoardVO" />
+	<typeAlias alias="replyVO" type="vo.ReplyVO" />
+	
+	<!-- 	공지사항 전체 리스트-->	
+	<select id="getnoticeList" resultClass="boardVO">
+		select rownum, bo_id,to_char(bo_date,'yyyy-MM-DD') bo_date,bo_title,bo_content, bo_sc,bo_pass,mem_id from board where mem_id = 'admin' 
+	</select>
+	
+	<!-- 	Q & A 전체 리스트-->	
+	<select id="getQAList" resultClass="boardVO">
+		select rownum, bo_id,to_char(bo_date,'yyyy-MM-DD') bo_date,bo_title,bo_content, bo_sc,bo_pass,mem_id from board where mem_id != 'admin' 
+	</select>
+	
+	<!-- 	공지사항 게시물 검색하기 --> 
+	<select id="searchNoticeBoard" parameterClass="map" resultClass="boardVO">
+		select rownum, bo_id,to_char(bo_date,'yyyy-MM-DD') bo_date,bo_title,bo_content, bo_sc,bo_pass,mem_id from board where $colName$ like #searchdata# and mem_id='admin' 
+	</select>
+	
+	<!-- 	Q & A  게시물 검색하기 --> 
+	<select id="searchQABoard" parameterClass="map" resultClass="boardVO">
+		select rownum, bo_id,to_char(bo_date,'yyyy-MM-DD') bo_date,bo_title,bo_content, bo_sc,bo_pass,mem_id from board where $colName$ $op$ #searchdata# and mem_id !='admin' 
+	</select>
+	
+	
+	
+	<!-- 게시물 삭제하기 -->
+	<delete id="deleteBoard" parameterClass="string">
+		delete from board where bo_id=#data#
+	</delete>
+	
+	<!-- 비밀글 게시물 작성하기 -->
+	<insert id="insertSecretBoard" parameterClass="boardVO" >
+		insert into board values('bo'||board_seq.nextVal,sysdate,#bo_title#,#bo_content#,'t',#bo_pass#,#mem_id#)
+	</insert>
+	
+	<!--  게시물 작성하기 -->
+	<insert id="insertBoard" parameterClass="boardVO" >
+		insert into board(bo_id,bo_date,bo_title,bo_content,bo_sc,mem_id) values('bo'||board_seq.nextVal,sysdate,#bo_title#,#bo_content#,'f',#mem_id#)
+	</insert>
+	
+	<!-- 비밀글로 수정 -->
+	<update id="updateSecretBoard" parameterClass="boardVO" >
+		update board set bo_title =#bo_title#,bo_content=#bo_content#,bo_sc='t',bo_pass=#bo_pass# where bo_id=#bo_id#
+	</update>
+	
+	<!-- 일반글로 수정 -->
+	<update id="updateNomalBoard" parameterClass="boardVO" >
+		update board set bo_title =#bo_title#,bo_content=#bo_content#,bo_sc='f' where bo_id=#bo_id#
+	</update>
+	
+	<!-- 게시물 수정 -->
+	<update id="updateBoard" parameterClass="boardVO" >
+		update board set bo_title =#bo_title#,bo_content=#bo_content# where bo_id=#bo_id#
+	</update>
+	
+	<select id="selectReply" resultClass="replyVO" parameterClass="string">
+		select * from reply where bo_id=#data#
+	</select>
+	
+	<insert id="insertReply" parameterClass="map">
+		insert into reply values('rp'||reply_seq.nextVal,#bo_id#,sysdate,#reply_content#,#mem_id#)
+	</insert>
+	
+
+
+</sqlMap>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="zoo">
+	<typeAlias alias="farmVO" type="vo.FarmVO"/>
+	<typeAlias alias="animalVO" type="vo.AnimalVO"/>
+	
+	<select id="getComboList" resultClass="String" parameterClass="String">
+		select ANIMAL_name from animal where FARM_ID = #farm_id#
+	</select>
+	
+	<select id="getAnimalExplain" parameterClass="String" resultClass="String">
+		select animal_content from animal where animal_name = #animal_name#
+	</select>
+	
+	<select id="getAllAnimal" resultClass="animalVO">
+		select * from animal order by animal_id
+	</select>
+	
+	<insert id="inertAnimal" parameterClass="animalVO">
+		insert into animal
+		values( 'AN'||animal_seq.nextVal, #animal_name#, #animal_content#, #farm_id#)
+	</insert>
+	
+	<delete id="deleteAnimal" parameterClass="String" >
+		delete from animal where animal_id = #animal_id#
+	</delete>
+	
+	<update id="updateAnimal" parameterClass="animalVO">
+		update animal
+		set animal_name = #animal_name#,
+			animal_content = #animal_content#,
+			farm_id = #farm_id#
+		where animal_id = #animal_id#
+			
+		
+	</update>
+</sqlMap>

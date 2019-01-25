@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="buy">
+
+<typeAlias alias="ticketVO" type="vo.TicketVO"/>
+<select id="getTicket" parameterClass="String" resultClass="ticketVO">
+	select * from ticket where ticket_id=#data#
+</select>
+
+<select id="selectAllDate" resultClass="string">
+	 select distinct(to_char(buy_date,'yyyy-mm-dd')) buy_date
+    from buy 
+    order by 1
+</select>
+
+<typeAlias alias="ejVO" type="vo.Event_joinVO"/>
+<select id="getEventJoin" parameterClass="String" resultClass="ejVO">
+	select * from event_join where mem_id=#data#
+</select>
+
+<typeAlias alias="eventVO" type="vo.EventVO"/>
+<select id="getEvent" resultClass="eventVO">
+	select * from event
+</select>
+
+<select id="getEventwithEJID" parameterClass="String" resultClass="eventVO">
+	select * from event,event_join where ej_id=#data# and event.event_id = event_join.event_id
+</select>
+
+<typeAlias alias="buyVO" type="vo.BuyVO"/>
+<select id="checkBuy" parameterClass="buyVO" resultClass="int">
+<![CDATA[
+	select count(*) from buy,annual_member where buy.ticket_id!='tc007' and (TO_DATE(buy_date, 'YY/MM/DD')=TO_DATE(#buy_date#, 'YYYY-MM-DD') and mem_id=#mem_id# and refund='F') or (am_id=#mem_id# and TO_DATE(am_start, 'YY/MM/DD')<=TO_DATE(#buy_date#, 'YYYY-MM-DD') and TO_DATE(#buy_date#, 'YYYY-MM-DD')<=TO_DATE(am_end, 'YY/MM/DD'))
+]]>
+</select>
+
+<typeAlias alias="annualVO" type="vo.Annual_memberVO"/>
+<select id="checkAnnual" parameterClass="annualVO" resultClass="int">
+<![CDATA[
+	select count(*) from annual_member where am_id=#am_id# and ((TO_DATE(am_start, 'YY/MM/DD')<=TO_DATE(#am_start#, 'YYYY-MM-DD') and TO_DATE(#am_start#, 'YYYY-MM-DD')<=TO_DATE(am_end, 'YY/MM/DD'))
+															 or (TO_DATE(am_start, 'YY/MM/DD')<=TO_DATE(#am_end#, 'YYYY-MM-DD') and TO_DATE(#am_end#, 'YYYY-MM-DD')<=TO_DATE(am_end, 'YY/MM/DD')))
+]]>	
+</select>
+
+<typeAlias alias="ticketVO" type="vo.TicketVO"/>
+<select id="getAllTicket" resultClass="ticketVO">
+	select * from ticket
+</select>
+
+<insert id="insertBuy" parameterClass="buyVO">
+	insert into buy values('by'||buy_seq.nextVal,#buy_date#,'F',#sales#,#ticket_id#,#mem_id#,#ej_id#)
+</insert>
+
+<insert id="insertAnnual" parameterClass="annualVO">
+	insert into annual_member values(#am_id#,#am_start#,#am_end#,#ticket_id#)
+
+</insert>
+
+<typeAlias alias="memVO" type="vo.MemberVO"/>
+<select id="getMember" parameterClass="String" resultClass="memVO">
+	select
+		MEM_ID, MEM_PASS,MEM_NAME,to_char(mem_bir,'YYYY-MM-DD') mem_bir,
+		MEM_TEL,MEM_MAIL,MEM_GRADE,NVL(SALESTICKET,0) SALESTICKET  
+	 from member where mem_id=#data#
+</select>
+
+<select id="checkAnnual2" parameterClass="String" resultClass="int">
+	select count(*) from annual_member where am_id=#data#
+</select>
+
+<update id="updateAnnual" parameterClass="annualVO">
+	update annual_member set am_start=#am_start#, am_end=#am_end#, ticket_id=#ticket_id# where am_id=#am_id#
+</update>
+
+<update id="updateTicket" parameterClass="ticketVO">
+	update ticket set ticket_pri=#ticket_pri# where ticket_id=#ticket_id# 
+</update>
+
+<select id="getAllBuy" resultClass="buyVO">
+<![CDATA[
+	select buy_id,
+       to_char(buy_date,'yyyy-mm-dd') as buy_date,
+       refund,
+       sales,
+       ticket_id,
+       mem_id,
+       ej_id
+	from buy 
+	where TO_DATE(buy_date, 'YY/MM/DD')>=(sysdate-1) 
+	order by 2
+]]>
+</select>
+<select id="getBuywithid" parameterClass="String" resultClass="buyVO">
+<![CDATA[
+	select buy_id,
+       to_char(buy_date,'yyyy-mm-dd') as buy_date,
+       refund,
+       sales,
+       ticket_id,
+       mem_id,
+       ej_id
+	from buy
+	where buy_id=#data# or mem_id=#data#
+]]>
+</select>
+
+<select id="getBuyVOwithId" parameterClass="String" resultClass="buyVO">
+	<![CDATA[
+		select buy_id,
+		       to_char(buy_date,'yyyy-mm-dd') as buy_date,
+		       refund,
+		       sales,
+		       ticket_id,
+		       mem_id 
+		from buy
+		where mem_id=#data# and ticket_id != 'tc007' and TO_DATE(buy_date, 'YY/MM/DD')>=(sysdate-1)
+		order by 2       
+	]]>
+</select>
+<update id="refundTicket" parameterClass="String">
+	update buy set refund='T' where buy_id=#data#
+</update>
+
+<select id="getAllbuyForChart" resultClass="buyVO">
+	select * from buy
+</select>	
+<select id="getAllbuyForExcel" resultClass="buyVO" parameterClass="string">
+	select buy_id,to_char(buy_date,'yyyy-mm-dd') buy_date,sales,ticket_id,mem_id,ej_id from buy where buy_date=#data#
+</select>	
+<select id="getTicketCount" parameterClass="String" resultClass="int">
+   select count(*) from buy where Ticket_id=#ticket_id# and refund='F'
+</select>
+
+<select id="getMemberCount" parameterClass="int" resultClass="int">
+   select count(*) age from member
+   <![CDATA[
+   where round((sysdate-mem_bir)/365,0)> #num#-10 
+      and round((sysdate-mem_bir)/365,0)<#num#
+       and mem_id in 
+        (select mem_id from buy where Buy.Refund='F')
+   ]]>
+</select>
+
+</sqlMap>
